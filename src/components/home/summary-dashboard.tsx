@@ -16,6 +16,72 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function SummaryDashboard() {
+    // Mock Data for the summary
+    const podcastData = {
+        title: "The Future of AI: Beyond LLMs",
+        duration: "45:00",
+        currentPosition: "12:34",
+        speakers: [
+            { name: "Host Name", role: "Tech Journalist", color: "from-blue-500 to-cyan-500" },
+            { name: "Guest Name", role: "AI Researcher", color: "from-violet-500 to-purple-500" }
+        ],
+        keyInsights: [
+            {
+                title: "Point 1",
+                description: "This is a key insight extracted from the podcast. It highlights the main discussion points regarding AI advancements."
+            },
+            {
+                title: "Point 2",
+                description: "This is a key insight extracted from the podcast. It highlights the main discussion points regarding AI advancements."
+            },
+            {
+                title: "Point 3",
+                description: "This is a key insight extracted from the podcast. It highlights the main discussion points regarding AI advancements."
+            }
+        ],
+        transcript: [
+            { time: "00:00:00", speaker: "Speaker 1", text: "Welcome back to the show. Today we are discussing..." },
+            { time: "00:00:15", speaker: "Speaker 2", text: "Thanks for having me. It is a pleasure to be here..." }
+        ]
+    };
+
+    const handleExportJSON = () => {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(podcastData, null, 2));
+        const downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", "summary.json");
+        document.body.appendChild(downloadAnchorNode);
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+    };
+
+    const handleExportMarkdown = () => {
+        let mdContent = `# ${podcastData.title}\n\n`;
+        mdContent += `**Duration:** ${podcastData.duration}\n\n`;
+
+        mdContent += `## Key Insights\n`;
+        podcastData.keyInsights.forEach((insight, index) => {
+            mdContent += `### ${index + 1}. ${insight.title}\n${insight.description}\n\n`;
+        });
+
+        mdContent += `## Transcript\n`;
+        podcastData.transcript.forEach((entry) => {
+            mdContent += `**[${entry.time}] ${entry.speaker}:** ${entry.text}\n\n`;
+        });
+
+        const dataStr = "data:text/markdown;charset=utf-8," + encodeURIComponent(mdContent);
+        const downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", "summary.md");
+        document.body.appendChild(downloadAnchorNode);
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+    };
+
+    const handleExportPDF = () => {
+        window.print();
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -32,7 +98,7 @@ export function SummaryDashboard() {
                     </Link>
                     <div>
                         <h2 className="text-3xl font-bold">Podcast Summary</h2>
-                        <p className="text-muted-foreground">The Future of AI: Beyond LLMs</p>
+                        <p className="text-muted-foreground">{podcastData.title}</p>
                     </div>
                 </div>
                 <div className="flex gap-2">
@@ -49,13 +115,13 @@ export function SummaryDashboard() {
                         <DropdownMenuContent align="end">
                             <DropdownMenuLabel>Export As</DropdownMenuLabel>
                             <DropdownMenuSeparator />
-                            <DropdownMenuItem className="cursor-pointer">
+                            <DropdownMenuItem className="cursor-pointer" onClick={handleExportPDF}>
                                 <FileText className="w-4 h-4 mr-2" /> PDF Document
                             </DropdownMenuItem>
-                            <DropdownMenuItem className="cursor-pointer">
+                            <DropdownMenuItem className="cursor-pointer" onClick={handleExportMarkdown}>
                                 <FileType className="w-4 h-4 mr-2" /> Markdown
                             </DropdownMenuItem>
-                            <DropdownMenuItem className="cursor-pointer">
+                            <DropdownMenuItem className="cursor-pointer" onClick={handleExportJSON}>
                                 <FileJson className="w-4 h-4 mr-2" /> JSON Data
                             </DropdownMenuItem>
                         </DropdownMenuContent>
@@ -101,8 +167,8 @@ export function SummaryDashboard() {
                                     <div className="h-full w-1/3 bg-primary"></div>
                                 </div>
                                 <div className="flex justify-between text-xs text-muted-foreground">
-                                    <span>12:34</span>
-                                    <span>45:00</span>
+                                    <span>{podcastData.currentPosition}</span>
+                                    <span>{podcastData.duration}</span>
                                 </div>
                             </div>
                         </CardContent>
@@ -121,10 +187,10 @@ export function SummaryDashboard() {
                                     <CardTitle>Key Takeaways</CardTitle>
                                 </CardHeader>
                                 <CardContent className="space-y-4">
-                                    {[1, 2, 3].map((i) => (
+                                    {podcastData.keyInsights.map((insight, i) => (
                                         <div key={i} className="p-4 rounded-lg bg-secondary/50 border border-border">
-                                            <h4 className="font-semibold mb-2 text-primary">Point {i}</h4>
-                                            <p className="text-sm text-muted-foreground">This is a key insight extracted from the podcast. It highlights the main discussion points regarding AI advancements.</p>
+                                            <h4 className="font-semibold mb-2 text-primary">{insight.title}</h4>
+                                            <p className="text-sm text-muted-foreground">{insight.description}</p>
                                         </div>
                                     ))}
                                 </CardContent>
@@ -135,8 +201,11 @@ export function SummaryDashboard() {
                             <Card>
                                 <CardContent className="p-6 h-[500px] overflow-y-auto">
                                     <p className="leading-relaxed text-muted-foreground">
-                                        [00:00:00] <strong>Speaker 1:</strong> Welcome back to the show. Today we are discussing...<br /><br />
-                                        [00:00:15] <strong>Speaker 2:</strong> Thanks for having me. It is a pleasure to be here...
+                                        {podcastData.transcript.map((entry, i) => (
+                                            <span key={i} className="block mb-4">
+                                                [{entry.time}] <strong>{entry.speaker}:</strong> {entry.text}
+                                            </span>
+                                        ))}
                                     </p>
                                 </CardContent>
                             </Card>
@@ -159,20 +228,15 @@ export function SummaryDashboard() {
                             <CardTitle>Speakers</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-4">
-                            <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-500 to-cyan-500"></div>
-                                <div>
-                                    <p className="font-medium">Host Name</p>
-                                    <p className="text-xs text-muted-foreground">Tech Journalist</p>
+                            {podcastData.speakers.map((speaker, i) => (
+                                <div key={i} className="flex items-center gap-3">
+                                    <div className={`w-10 h-10 rounded-full bg-gradient-to-tr ${speaker.color}`}></div>
+                                    <div>
+                                        <p className="font-medium">{speaker.name}</p>
+                                        <p className="text-xs text-muted-foreground">{speaker.role}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-violet-500 to-purple-500"></div>
-                                <div>
-                                    <p className="font-medium">Guest Name</p>
-                                    <p className="text-xs text-muted-foreground">AI Researcher</p>
-                                </div>
-                            </div>
+                            ))}
                         </CardContent>
                     </Card>
                 </div>

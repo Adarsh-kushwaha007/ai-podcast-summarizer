@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, CloudUpload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { InputArea } from "@/components/home/input-area";
+import { ParticleWaves } from "@/components/ui/particle-waves";
 
 interface HeroSectionProps {
     onProcess: (url: string) => void;
@@ -25,12 +26,12 @@ export function HeroSection({ onProcess, isProcessing }: HeroSectionProps) {
 
     return (
         <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+            <ParticleWaves />
             {/* Background Elements */}
-            <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-violet-200/20 via-background to-background dark:from-violet-900/20"></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-3xl animate-pulse-glow"></div>
+            {/* <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-violet-600/40 via-transparent to-transparent dark:from-violet-800/40 dark:via-background dark:to-background"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-violet-800/40 rounded-full blur-3xl animate-pulse-glow dark:bg-primary/20"></div> */}
 
-            {/* Grid Pattern */}
-            <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20"></div>
+
 
             <div className="container px-4 text-center z-10">
                 <motion.div
@@ -47,7 +48,7 @@ export function HeroSection({ onProcess, isProcessing }: HeroSectionProps) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-foreground drop-shadow-sm"
+                    className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-6 text-foreground drop-shadow-sm"
                 >
                     Turn{" "}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-blue-600 font-black">

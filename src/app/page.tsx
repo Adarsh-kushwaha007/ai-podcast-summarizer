@@ -6,7 +6,10 @@ import { HeroSection } from "@/components/home/hero-section";
 import { SummaryDashboard } from "@/components/home/summary-dashboard";
 import { Features } from "@/components/home/features";
 import { HowItWorks } from "@/components/home/how-it-works";
+import { Testimonials } from "@/components/home/testimonials";
 import { AnimatePresence, motion } from "framer-motion";
+
+import { FAQSection } from "@/components/home/faq-section";
 
 function HomeContent() {
   const router = useRouter();
@@ -45,6 +48,8 @@ function HomeContent() {
           />
           <Features />
           <HowItWorks />
+          <Testimonials />
+          <FAQSection />
         </>
       )}
     </AnimatePresence>

@@ -24,7 +24,7 @@ export function Header() {
                         <Mic className="text-white w-5 h-5" />
                     </div>
                     <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-blue-600 dark:from-violet-400 dark:to-blue-400">
-                        PodSumm.ai
+                        Serenote.ai
                     </span>
                 </Link>
 
@@ -95,6 +95,8 @@ export function Header() {
                             How it works
                         </Link>
                         <Link href="/pricing" className="hover:text-primary transition-colors">Pricing</Link>
+                        {/* <Link href="/dashboard" className="hover:text-primary transition-colors">Dashboard</Link>
+                        <Link href="/admin" className="hover:text-primary transition-colors">Admin</Link> */}
                     </nav>
 
                     <div className="flex items-center gap-4">

@@ -22,7 +22,7 @@ export default function AboutPage() {
                     <h1 className="text-4xl md:text-6xl font-bold mb-6">Reinventing how we consume audio</h1>
                     <p className="text-xl text-muted-foreground leading-relaxed">
                         We are on a mission to unlock the knowledge hidden in billions of hours of spoken content.
-                        PodSumm.ai makes audio accessible, searchable, and actionable for everyone.
+                        Serenote.ai makes audio accessible, searchable, and actionable for everyone.
                     </p>
                 </motion.div>
 
@@ -63,7 +63,7 @@ export default function AboutPage() {
                                 It started with a simple frustration: there are too many amazing podcasts and not enough time to listen to them all. We found ourselves constantly taking notes, rewinding, and wishing there was a better way to capture the "gold nuggets" of wisdom.
                             </p>
                             <p>
-                                In 2024, with the explosion of Generative AI, we realized we could finally solve this problem. We built PodSumm.ai not just to summarize, but to understand. To connect dots between conversations and create a second brain for your audio consumption.
+                                In 2024, with the explosion of Generative AI, we realized we could finally solve this problem. We built Serenote.ai not just to summarize, but to understand. To connect dots between conversations and create a second brain for your audio consumption.
                             </p>
                         </div>
                     </motion.div>
