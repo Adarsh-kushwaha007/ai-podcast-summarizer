@@ -32,7 +32,7 @@ export default function BlogPage() {
                         animate={{ opacity: 1, y: 0 }}
                         className="inline-block mb-4 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium"
                     >
-                        The PodSumm Blog
+                        The Serenote Blog
                     </motion.div>
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}

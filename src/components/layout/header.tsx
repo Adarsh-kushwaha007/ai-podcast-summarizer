@@ -24,7 +24,7 @@ export function Header() {
                         <Mic className="text-white w-5 h-5" />
                     </div>
                     <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-blue-600 dark:from-violet-400 dark:to-blue-400">
-                        PodSumm.ai
+                        Serenote.ai
                     </span>
                 </Link>
 

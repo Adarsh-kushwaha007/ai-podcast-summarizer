@@ -7,7 +7,7 @@ const testimonials = [
     {
         name: "Sarah Chen",
         role: "Content Creator",
-        content: "PodSumm has completely changed my workflow. I can research podcast topics in minutes instead of hours.",
+        content: "Serenote has completely changed my workflow. I can research podcast topics in minutes instead of hours.",
         rating: 5,
     },
     {
@@ -55,7 +55,7 @@ export function Testimonials() {
                     transition={{ delay: 0.1 }}
                     className="text-muted-foreground text-lg max-w-2xl mx-auto"
                 >
-                    See what our community has to say about their experience with PodSumm.ai.
+                    See what our community has to say about their experience with Serenote.ai.
                 </motion.p>
             </div>
 
@@ -76,8 +76,8 @@ export function Testimonials() {
                                     <Star
                                         key={i}
                                         className={`w-4 h-4 ${i < testimonial.rating
-                                                ? "text-yellow-400 fill-yellow-400"
-                                                : "text-muted"
+                                            ? "text-yellow-400 fill-yellow-400"
+                                            : "text-muted"
                                             }`}
                                     />
                                 ))}

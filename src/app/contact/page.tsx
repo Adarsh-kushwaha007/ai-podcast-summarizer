@@ -39,8 +39,8 @@ export default function ContactPage() {
                                     <Mail className="w-6 h-6 text-primary mt-1" />
                                     <div>
                                         <h4 className="font-semibold mb-1">Email Us</h4>
-                                        <p className="text-muted-foreground text-sm">support@podsumm.ai</p>
-                                        <p className="text-muted-foreground text-sm">hello@podsumm.ai</p>
+                                        <p className="text-muted-foreground text-sm">support@serenote.ai</p>
+                                        <p className="text-muted-foreground text-sm">hello@serenote.ai</p>
                                     </div>
                                 </CardContent>
                             </Card>

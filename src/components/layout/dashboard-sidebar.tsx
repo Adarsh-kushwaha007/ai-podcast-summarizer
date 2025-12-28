@@ -28,7 +28,7 @@ export function DashboardSidebar({ items, role }: DashboardSidebarProps) {
                         <Mic className="text-white w-5 h-5" />
                     </div>
                     <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80">
-                        PodSumm
+                        Serenote.ai
                     </span>
                 </Link>
                 <div className="mt-2 text-xs font-medium text-muted-foreground uppercase tracking-wider px-1">

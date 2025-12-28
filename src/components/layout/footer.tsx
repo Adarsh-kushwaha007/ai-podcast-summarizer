@@ -82,7 +82,7 @@ export function Footer() {
                                 <Mic className="text-white w-5 h-5" />
                             </div>
                             <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80">
-                                PodSumm.ai
+                                Serenote.ai
                             </span>
                         </Link>
                         <p className="text-muted-foreground mb-8 max-w-sm leading-relaxed">
@@ -175,12 +175,12 @@ export function Footer() {
                     className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground"
                 >
                     <div className="flex flex-col md:flex-row items-center gap-2 md:gap-8">
-                        <p>© {new Date().getFullYear()} PodSumm.ai. All rights reserved.</p>
+                        <p>© {new Date().getFullYear()} Serenote.ai. All rights reserved.</p>
                     </div>
                     <div className="flex items-center gap-1">
                         <span>Made with</span>
                         <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
-                        <span>by PodSumm Team</span>
+                        <span>by Serenote Team</span>
                     </div>
                 </motion.div>
             </div>

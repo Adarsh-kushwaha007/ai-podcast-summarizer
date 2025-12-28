@@ -45,7 +45,7 @@ export function FAQSection() {
                         Frequently Asked Questions
                     </h2>
                     <p className="text-muted-foreground text-lg">
-                        Everything you need to know about PodSumm.
+                        Everything you need to know about Serenote.
                     </p>
                 </motion.div>
 
