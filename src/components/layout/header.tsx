@@ -95,6 +95,8 @@ export function Header() {
                             How it works
                         </Link>
                         <Link href="/pricing" className="hover:text-primary transition-colors">Pricing</Link>
+                        {/* <Link href="/dashboard" className="hover:text-primary transition-colors">Dashboard</Link>
+                        <Link href="/admin" className="hover:text-primary transition-colors">Admin</Link> */}
                     </nav>
 
                     <div className="flex items-center gap-4">
